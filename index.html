@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Pâque 2026 · El Bethel · Inscription</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            color: #1a1a2e;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 0;
+            overflow: hidden;
+            border: 2px solid #e31837;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero {
+            background: #003366;
+            padding: 2rem 2rem 1.8rem;
+            text-align: center;
+            border-bottom: 4px solid #e31837;
+        }
+
+        /* ESPACE POUR LE LOGO */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .logo-wrapper {
+            background: transparent;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-wrapper:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-sub {
+            color: #ffcc00;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.4rem 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        /* COMPTEUR DE PLACES - EFFET D'URGENCE RENFORCÉ */
+        .counter-section {
+            background: linear-gradient(135deg, #e31837 0%, #8b0a1f 100%);
+            margin: 1.8rem 1.8rem 0 1.8rem;
+            padding: 1.5rem;
+            text-align: center;
+            border: 3px solid #ffcc00;
+            box-shadow: 0 0 20px rgba(227, 24, 55, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .counter-section::before {
+            content: "⚠️";
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.1;
+            right: -20px;
+            top: -20px;
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+
+        .counter-section::after {
+            content: "⚠️";
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.1;
+            left: -20px;
+            bottom: -20px;
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+
+        .counter-title {
+            color: #ffcc00;
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .counter-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            font-family: monospace;
+            background: rgba(0, 0, 0, 0.4);
+            display: inline-block;
+            padding: 0.2rem 1.5rem;
+            margin: 0.5rem 0;
+            border-radius: 0;
+            letter-spacing: 4px;
+        }
+
+        .counter-message {
+            color: #fff5e0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .counter-warning {
+            animation: pulseWarning 1s ease-in-out infinite;
+            font-weight: bold;
+            background: rgba(255, 204, 0, 0.2);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            margin-top: 0.8rem;
+        }
+
+        @keyframes pulseWarning {
+            0%, 100% { 
+                opacity: 1; 
+                transform: scale(1);
+                background: rgba(255, 204, 0, 0.2);
+            }
+            50% { 
+                opacity: 0.8; 
+                transform: scale(1.02);
+                background: rgba(255, 204, 0, 0.4);
+            }
+        }
+
+        .progress-bar-container {
+            background: rgba(0, 0, 0, 0.3);
+            height: 12px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: #ffcc00;
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        /* Carte d'introduction */
+        .intro-card {
+            background: #f8f9fa;
+            margin: 1.8rem 1.8rem 0 1.8rem;
+            padding: 1.6rem 1.8rem;
+            border-left: 6px solid #e31837;
+            border-right: 1px solid #e0e0e0;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            color: #1a1a2e;
+            line-height: 1.5;
+        }
+
+        .intro-highlight {
+            background: #f0f2f5;
+            padding: 0.8rem 1rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #003366;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            border-left: 3px solid #e31837;
+        }
+
+        form {
+            padding: 0 1.8rem 2rem 1.8rem;
+        }
+
+        .form-section {
+            margin-top: 1.8rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e31837;
+        }
+
+        .section-title i {
+            font-size: 1.4rem;
+            color: #e31837;
+            background: #f0f2f5;
+            padding: 8px;
+        }
+
+        .section-title h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #003366;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            color: #003366;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #d0d0d0;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            font-family: inherit;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #e31837;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+            margin-top: 0.3rem;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 6px 12px;
+            background: #f8f9fa;
+            transition: all 0.2s;
+        }
+
+        .radio-group label:hover {
+            background: #e8eaed;
+        }
+
+        .radio-group input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #e31837;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 0.7rem;
+            margin-top: 0.8rem;
+        }
+
+        .module-item {
+            background: #f8f9fa;
+            border: 2px solid #d0d0d0;
+            padding: 0.5rem 1rem;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .module-item:hover {
+            background: #e8eaed;
+            border-color: #e31837;
+            transform: translateX(3px);
+        }
+
+        .module-item label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1a1a2e;
+        }
+
+        .module-item input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #e31837;
+        }
+
+        .payment-card {
+            background: #f8f9fa;
+            padding: 1.3rem;
+            margin: 1.5rem 0;
+            text-align: center;
+            border: 2px solid #d0d0d0;
+        }
+
+        .amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #e31837;
+            margin: 0.3rem 0;
+        }
+
+        .wave-number {
+            background: #003366;
+            color: #ffffff;
+            padding: 0.5rem 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0.8rem 0;
+        }
+
+        .btn-submit {
+            background: #e31837;
+            border: none;
+            width: auto;
+            min-width: 320px;
+            max-width: 90%;
+            padding: 0.9rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            font-family: inherit;
+            margin: 0.5rem auto 1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(227, 24, 55, 0.3);
+            animation: flutter 2s ease-in-out infinite;
+        }
+
+        .btn-submit:hover {
+            background: #b0102c;
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(227, 24, 55, 0.4);
+            animation: none;
+        }
+
+        .btn-submit:active {
+            transform: scale(0.98);
+        }
+
+        .btn-share {
+            background: #003366;
+            border: none;
+            width: auto;
+            padding: 0.7rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.2s;
+            font-family: inherit;
+            margin: 0.5rem 0;
+        }
+
+        .btn-share:hover {
+            background: #002244;
+            transform: scale(1.02);
+        }
+
+        @keyframes flutter {
+            0% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-4px) rotate(0.5deg); }
+            50% { transform: translateY(2px) rotate(-0.3deg); }
+            75% { transform: translateY(-2px) rotate(0.3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .button-wrapper {
+            text-align: center;
+            margin: 0.5rem 0;
+        }
+
+        .share-wrapper {
+            text-align: center;
+            margin: 0.5rem 0 1rem;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 1rem;
+        }
+
+        .info-note {
+            background: #f8f9fa;
+            padding: 0.8rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #003366;
+            margin-top: 0.5rem;
+            border: 1px solid #d0d0d0;
+        }
+
+        .footer {
+            background: #003366;
+            padding: 1.2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #ffffff;
+            border-top: 3px solid #e31837;
+        }
+
+        .footer a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .confirmation-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            max-width: 500px;
+            width: 90%;
+            padding: 2rem;
+            text-align: center;
+            border: 3px solid #e31837;
+            animation: slideIn 0.4s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-icon {
+            font-size: 4rem;
+            color: #e31837;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content h3 {
+            font-size: 1.8rem;
+            color: #003366;
+            margin-bottom: 1rem;
+        }
+
+        .payment-instructions {
+            background: #f8f9fa;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: left;
+            border-left: 4px solid #e31837;
+        }
+
+        .modal-close {
+            background: #e31837;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 680px) {
+            body { padding: 1rem 0.5rem; }
+            .hero h1 { font-size: 1.6rem; }
+            .counter-section { margin: 1rem 1rem 0 1rem; padding: 1rem; }
+            .counter-number { font-size: 2.5rem; }
+            .intro-card { margin: 1rem 1rem 0 1rem; padding: 1.2rem; }
+            form { padding: 0 1rem 1.5rem 1rem; }
+            .form-row { flex-direction: column; gap: 0.8rem; }
+            .modules-grid { grid-template-columns: 1fr; }
+            .btn-submit { min-width: 280px; padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="hero">
+        <!-- ESPACE POUR LE LOGO - CODE INTÉGRÉ DIRECTEMENT -->
+        <div class="logo-container">
+            <div class="logo-wrapper">
+                <img src="votre-logo.png" alt="Logo Mission Évangélique El Bethel">
+            </div>
+        </div>
+        <h1>PÂQUES 2026</h1>
+        <div class="hero-sub">
+            <i class="fas fa-dove"></i> Mission Évangélique El Bethel
+        </div>
+    </div>
+
+    <!-- COMPTEUR DE PLACES AVEC EFFET D'URGENCE -->
+    <div class="counter-section">
+        <div class="counter-title">
+            <i class="fas fa-exclamation-triangle"></i> URGENT - PLACES TRÈS LIMITÉES <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <div class="counter-number" id="placeCounter">87</div>
+        <div class="counter-message">
+            <strong>places restantes</strong> sur 200
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="counter-message counter-warning">
+            <i class="fas fa-clock"></i> DÉPÊCHE-TOI ! Plus que quelques places avant la fermeture
+        </div>
+    </div>
+
+    <div class="intro-card">
+        <div class="intro-text">
+            <strong><i class="fas fa-heart" style="color:#e31837;"></i> Viens vivre une Pâque exceptionnelle !</strong><br>
+            Dans la présence de Dieu, dans la joie, la louange et la communion fraternelle. Un moment unique de renouveau spirituel et de partage.
+        </div>
+        <div class="intro-highlight">
+            <i class="fas fa-bible"></i> « Comme Jésus a célébré la Pâque avec ses disciples, nous célébrons la délivrance et la vie nouvelle. »
+        </div>
+    </div>
+
+    <form id="inscriptionForm">
+        <div class="form-section">
+            <div class="section-title">
+                <i class="fas fa-user-circle"></i>
+                <h2>Informations personnelles</h2>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Nom et Prénoms *</label>
+                    <input type="text" id="fullname" placeholder="Ex: KOUASSI Jean Marc" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-calendar-alt"></i> Âge *</label>
+                    <input type="number" id="age" placeholder="Ex: 22" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label><i class="fas fa-venus-mars"></i> Sexe *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="sexe" value="Homme" required> Homme</label>
+                        <label><input type="radio" name="sexe" value="Femme"> Femme</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fab fa-whatsapp"></i> Numéro WhatsApp *</label>
+                    <input type="tel" id="whatsapp" placeholder="07 47 03 42 62" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title">
+                <i class="fas fa-church"></i>
+                <h2>Informations spirituelles</h2>
+            </div>
+            <div class="form-group">
+                <label>Es-tu membre de la Mission Évangélique El Bethel ? *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="membre" value="Oui" required> Oui</label>
+                    <label><input type="radio" name="membre" value="Non"> Non</label>
+                </div>
+            </div>
+            <div id="egliseGroup" style="display: none;">
+                <div class="form-group">
+                    <label><i class="fas fa-place-of-worship"></i> Quelle église fréquentes-tu ?</label>
+                    <input type="text" id="autreEglise" placeholder="Nom de ton église">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title">
+                <i class="fas fa-music"></i>
+                <h2>Modules d'activités</h2>
+            </div>
+            <p style="font-size:0.85rem; color:#666; margin-bottom: 0.8rem;">Choisis les modules auxquels tu souhaites participer (plusieurs choix possibles)</p>
+            <div class="modules-grid" id="modulesContainer"></div>
+        </div>
+
+        <div class="form-section">
+            <div class="section-title">
+                <i class="fas fa-calendar-check"></i>
+                <h2>Participation</h2>
+            </div>
+            <div class="radio-group" style="margin-top: 0;">
+                <label><input type="radio" name="participation" value="Toute la Pâque" required> Toute la Pâque</label>
+                <label><input type="radio" name="participation" value="Quelques jours"> Quelques jours</label>
+            </div>
+        </div>
+
+        <div class="payment-card">
+            <i class="fas fa-gift" style="font-size: 1.8rem; color: #e31837;"></i>
+            <div class="amount">2000 FCFA</div>
+            <div>En tant que jeune, la participation est fixée à 2000 FCFA</div>
+            <div class="wave-number">
+                <i class="fab fa-waveform"></i> Wave : 0747034262
+            </div>
+            <div style="font-size: 0.8rem;">Effectue ton paiement via Wave, puis valide ton inscription</div>
+        </div>
+
+        <div class="button-wrapper">
+            <button type="button" id="submitBtn" class="btn-submit">
+                <i class="fab fa-whatsapp"></i> JE VALIDE ET JE PAIE MA PARTICIPATION (2000 FCFA)
+            </button>
+        </div>
+
+        <div class="share-wrapper">
+            <button type="button" id="shareBtn" class="btn-share">
+                <i class="fas fa-share-alt"></i> PARTAGER AVEC MES AMIS
+            </button>
+            <p style="font-size: 0.7rem; color: #666; margin-top: 5px;">
+                <i class="fas fa-users"></i> Invite tes amis à vivre cette expérience unique !
+            </p>
+        </div>
+
+        <div class="info-note">
+            <i class="fas fa-users"></i> ⚠️ Les places sont limitées – inscription obligatoire
+        </div>
+    </form>
+
+    <div class="footer">
+        <i class="fas fa-phone-alt"></i> Frère Hénoc : 0747034262 &nbsp;|&nbsp;
+        <i class="fas fa-envelope"></i> <a href="mailto:henocmamabo01@gmail.com">henocmamabo01@gmail.com</a>
+        <div style="margin-top: 6px;">✝️ Mission Évangélique El Bethel - Pâque 2026</div>
+    </div>
+</div>
+
+<div id="confirmationModal" class="confirmation-modal">
+    <div class="modal-content">
+        <div class="modal-icon">
+            <i class="fas fa-hands-clapping"></i>
+        </div>
+        <h3>FÉLICITATIONS ! </h3>
+        <p><strong>Ton inscription a été envoyée avec succès !</strong></p>
+        <p>Nous sommes ravis de te compter parmi nous pour cette Pâque 2026.</p>
+        
+        <div class="payment-instructions">
+            <p><i class="fas fa-waveform"></i> <strong>Frère Hénoc te donne les informations pour finaliser ton paiement :</strong></p>
+            <p><i class="fas fa-mobile-alt"></i> <strong>Wave :</strong> 0747034262</p>
+            <p><i class="fas fa-money-bill-wave"></i> <strong>Montant :</strong> 2000 FCFA</p>
+            <p><i class="fas fa-info-circle"></i> <strong>Référence :</strong> Indique ton nom complet dans le message du transfert</p>
+            <p><i class="fas fa-clock"></i> Après le paiement, tu recevras ton reçu et les détails de l'événement par WhatsApp</p>
+        </div>
+        
+        <p><i class="fas fa-heart" style="color:#e31837;"></i> Que Dieu te bénisse abondamment ! À très vite pour cette célébration unique.</p>
+        
+        <button class="modal-close" id="closeModalBtn">
+            <i class="fas fa-check-circle"></i> J'ai compris, merci !
+        </button>
+    </div>
+</div>
+
+<script>
+    // COMPTEUR DE PLACES DYNAMIQUE
+    let placesRestantes = 87;
+    const totalPlaces = 200;
+    const counterElement = document.getElementById('placeCounter');
+    const progressBar = document.getElementById('progressBar');
+    
+    function updateCounter() {
+        counterElement.textContent = placesRestantes;
+        const pourcentage = ((totalPlaces - placesRestantes) / totalPlaces) * 100;
+        progressBar.style.width = pourcentage + '%';
+        
+        if (placesRestantes <= 30) {
+            progressBar.style.background = '#ff6600';
+        }
+        if (placesRestantes <= 15) {
+            progressBar.style.background = '#ff0000';
+        }
+    }
+    
+    function decrementPlaces() {
+        if (placesRestantes > 0) {
+            placesRestantes--;
+            updateCounter();
+            localStorage.setItem('pascal_places', placesRestantes);
+        }
+    }
+    
+    const savedPlaces = localStorage.getItem('pascal_places');
+    if (savedPlaces !== null) {
+        placesRestantes = parseInt(savedPlaces);
+        updateCounter();
+    } else {
+        updateCounter();
+    }
+    
+    // MODULES D'ACTIVITÉS
+    const modulesList = [
+        "Chant (Louange & Adoration)", "Danse", "Jeux", "Réjouissance", "Jeux bibliques",
+        "Théâtre biblique", "Chorégraphie spirituelle", "Quiz biblique", "Témoignages",
+        "Enseignement spécial jeunes", "Coaching / Conseils de vie", "Talent show",
+        "Sport", "Temps de prière"
+    ];
+    
+    const modulesContainer = document.getElementById('modulesContainer');
+    function renderModules() {
+        modulesContainer.innerHTML = '';
+        modulesList.forEach(module => {
+            const div = document.createElement('div');
+            div.className = 'module-item';
+            div.innerHTML = `<label><input type="checkbox" name="modules" value="${module.replace(/"/g, '&quot;')}"><span>${module}</span></label>`;
+            modulesContainer.appendChild(div);
+        });
+    }
+    renderModules();
+    
+    // GESTION ÉGLISE
+    const membreRadios = document.querySelectorAll('input[name="membre"]');
+    const egliseGroup = document.getElementById('egliseGroup');
+    function toggleEgliseField() {
+        const selected = document.querySelector('input[name="membre"]:checked');
+        if (selected && selected.value === 'Non') {
+            egliseGroup.style.display = 'block';
+        } else {
+            egliseGroup.style.display = 'none';
+            document.getElementById('autreEglise').value = '';
+        }
+    }
+    membreRadios.forEach(radio => radio.addEventListener('change', toggleEgliseField));
+    
+    function getSelectedModules() {
+        const checkboxes = document.querySelectorAll('input[name="modules"]:checked');
+        return Array.from(checkboxes).map(cb => cb.value);
+    }
+    
+    // CONSTRUCTION MESSAGE WHATSAPP
+    function buildWhatsAppMessage() {
+        const fullname = document.getElementById('fullname').value.trim();
+        const age = document.getElementById('age').value.trim();
+        const sexeElem = document.querySelector('input[name="sexe"]:checked');
+        const sexe = sexeElem ? sexeElem.value : '';
+        const whatsappNum = document.getElementById('whatsapp').value.trim();
+        const membreElem = document.querySelector('input[name="membre"]:checked');
+        
+        let egliseReponse = '';
+        if (membreElem) {
+            if (membreElem.value === 'Oui') {
+                egliseReponse = 'Membre de la Mission Évangélique El Bethel';
+            } else {
+                const autre = document.getElementById('autreEglise').value.trim();
+                egliseReponse = autre ? autre : 'Non membre (église non précisée)';
+            }
+        }
+        
+        const modulesChoisis = getSelectedModules();
+        const modulesText = modulesChoisis.length > 0 ? modulesChoisis.join(', ') : 'Aucun module sélectionné';
+        const participationElem = document.querySelector('input[name="participation"]:checked');
+        const participation = participationElem ? participationElem.value : 'Non précisé';
+        
+        // VALIDATIONS
+        if (!fullname) { alert("Veuillez indiquer votre nom et prénoms."); return null; }
+        if (!age || age <= 0) { alert("Veuillez indiquer votre âge."); return null; }
+        if (!whatsappNum || whatsappNum.length < 8) { alert("Veuillez indiquer votre numéro WhatsApp."); return null; }
+        if (!sexeElem) { alert("Veuillez sélectionner votre sexe."); return null; }
+        if (!membreElem) { alert("Veuillez indiquer si vous êtes membre de l'église."); return null; }
+        if (membreElem.value === 'Non' && !document.getElementById('autreEglise').value.trim()) { alert("Veuillez indiquer le nom de votre église."); return null; }
+        if (!participationElem) { alert("Veuillez choisir votre type de participation."); return null; }
+        
+        return `Bonjour, je souhaite m’inscrire à la Pâque 2026 de la Mission Évangélique El Bethel.%0A%0ANom : ${fullname}%0AÂge : ${age}%0ASexe : ${sexe}%0ATéléphone : ${whatsappNum}%0A%0AÉglise : ${egliseReponse}%0AModules choisis : ${modulesText}%0A%0AParticipation : ${participation}%0A%0AJe confirme mon paiement de 2000 FCFA via Wave (0747034262).%0A`;
+    }
+    
+    function sendToWhatsApp() {
+        const msg = buildWhatsAppMessage();
+        if (!msg) return false;
+        window.open(`https://wa.me/2250747034262?text=${msg}`, '_blank');
+        return true;
+    }
+    
+    function showConfirmationModal() {
+        document.getElementById('confirmationModal').style.display = 'flex';
+        decrementPlaces();
+    }
+    
+    function closeModal() {
+        document.getElementById('confirmationModal').style.display = 'none';
+    }
+    
+    function shareForm() {
+        const shareText = "✨ Rejoins-moi pour la Pâque 2026 à la Mission Évangélique El Bethel ! Un moment de grâce, de joie et de communion. Inscris-toi vite, les places sont limitées ! 🙏🕊️";
+        window.open(`https://wa.me/?text=${encodeURIComponent(shareText + " " + window.location.href)}`, '_blank');
+    }
+    
+    // ÉVÉNEMENTS
+    document.getElementById('submitBtn').addEventListener('click', (e) => {
+        e.preventDefault();
+        const btn = e.target;
+        btn.style.transform = 'scale(0.97)';
+        setTimeout(() => btn.style.transform = '', 150);
+        if (buildWhatsAppMessage()) {
+            sendToWhatsApp();
+            setTimeout(showConfirmationModal, 500);
+        }
+    });
+    
+    document.getElementById('shareBtn').addEventListener('click', shareForm);
+    document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+    window.addEventListener('click', (e) => {
+        if (e.target === document.getElementById('confirmationModal')) closeModal();
+    });
+    
+    toggleEgliseField();
+</script>
+</body>
+</html>
